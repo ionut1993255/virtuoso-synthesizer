@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/virtuoso-synthesizer.ico" type="image/x-icon" />
+    <title>Virtuoso Synthesizer</title>
+  </head>
+  <body>
+    <h1>Virtuoso Synthesizer</h1>
+
+    <div class="wrapper">
+      <header>
+        <div class="column volume-slider">
+          <span>Volume</span>
+          <p>
+            - <input type="range" min="0" max="1" value="0.5" step="any" /> +
+          </p>
+        </div>
+
+        <div class="select">
+          <p>Choose an instrument</p>
+          <select class="instrument-selector">
+            <option value="acoustic_grand_piano">Acoustic Piano</option>
+            <option value="electric_piano">Electric Piano</option>
+            <option value="acoustic_guitar_nylon">Acoustic Guitar</option>
+            <option value="accordion">Accordion</option>
+            <option value="alto_sax">Alto Saxophone</option>
+            <option value="clarinet">Clarinet</option>
+            <option value="brass">Brass</option>
+            <option value="violin">Violin</option>
+          </select>
+        </div>
+
+        <div>
+          <div class="column keys-checkbox">
+            <span>Show keys</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <div class="slider">
+                <span class="on">On</span>
+                <span class="off">Off</span>
+              </div>
+            </label>
+          </div>
+
+          <button class="btn-record"></button>
+
+          <button class="btn-stop-record" disabled>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="red"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="white"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5.25 7.5A2.25 2.25 0 017.5 5.25h9a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-9a2.25 2.25 0 01-2.25-2.25v-9z"
+              />
+            </svg>
+          </button>
+
+          <button class="show-song-list">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#501e1e"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <ul class="piano-keys">
+        <li class="key white" data-key="a"><span>a</span></li>
+        <li class="key black" data-key="w"><span>w</span></li>
+        <li class="key white" data-key="s"><span>s</span></li>
+        <li class="key black" data-key="e"><span>e</span></li>
+        <li class="key white" data-key="d"><span>d</span></li>
+        <li class="key white" data-key="f"><span>f</span></li>
+        <li class="key black" data-key="t"><span>t</span></li>
+        <li class="key white" data-key="g"><span>g</span></li>
+        <li class="key black" data-key="y"><span>y</span></li>
+        <li class="key white" data-key="h"><span>h</span></li>
+        <li class="key black" data-key="u"><span>u</span></li>
+        <li class="key white" data-key="j"><span>j</span></li>
+        <li class="key white" data-key="k"><span>k</span></li>
+        <li class="key black" data-key="o"><span>o</span></li>
+        <li class="key white" data-key="l"><span>l</span></li>
+        <li class="key black" data-key="p"><span>p</span></li>
+        <li class="key white" data-key=";"><span>;</span></li>
+        <li class="key white" data-key="z"><span>z</span></li>
+        <li class="key black" data-key="x"><span>x</span></li>
+        <li class="key white" data-key="c"><span>c</span></li>
+        <li class="key black" data-key="v"><span>v</span></li>
+        <li class="key white" data-key="b"><span>b</span></li>
+        <li class="key black" data-key="n"><span>n</span></li>
+        <li class="key white" data-key="m"><span>m</span></li>
+        <li class="key white" data-key=","><span>,</span></li>
+      </ul>
+    </div>
+
+    <form class="popup">
+      <label>Name your song here</label>
+      <input type="text" />
+      <div>
+        <button class="btn-save">Save</button>
+        <button class="btn-cancel">Cancel</button>
+      </div>
+    </form>
+
+    <div class="overlay"></div>
+
+    <div class="song-list">
+      <ul></ul>
+    </div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

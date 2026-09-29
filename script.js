@@ -97,6 +97,9 @@ const showHideKeys = () => {
 
 // SONGS API
 const getSongs = async () => {
+  const existingMessage = document.querySelector(".song-list-message");
+  if (existingMessage) existingMessage.remove();
+
   try {
     const response = await fetch(`${API_URL}/songs`);
 
@@ -196,9 +199,6 @@ const showSongListMessage = (message) => {
 
 const buildSongList = (data) => {
   songUList.innerHTML = "";
-
-  const existingMessage = document.querySelector(".song-list-message");
-  if (existingMessage) existingMessage.remove();
 
   if (data.length === 0) {
     showSongListMessage("No songs available!");
@@ -397,7 +397,6 @@ const resetValues = () => {
   notesPlayed = [];
 };
 
-// POPUP
 const closePopup = () => {
   form.classList.remove("active");
   overlay.classList.remove("active");
